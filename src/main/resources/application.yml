@@ -1,6 +1,13 @@
 spring:
   application:
     name: "configserver"
+  profiles:
+    active: native # tell to activate native profile of spring cloud config server
+  cloud:
+    config:
+      server:
+        native:
+          search-location: "classpath:/config"
 
 server:
   port: 8071
