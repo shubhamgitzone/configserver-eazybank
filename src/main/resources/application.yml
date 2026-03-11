@@ -7,7 +7,8 @@ spring:
     config:
       server:
         native:
-          search-location: "classpath:/config"
+          #search-location: "classpath:/config"
+          search-locations: "file:///F://Learn CS//Microservices//myMS//config"
 
 server:
   port: 8071
