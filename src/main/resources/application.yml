@@ -18,5 +18,8 @@ spring:
           clone-on-start: true
           force-pull: true
 
+#encrypt:
+ #key: an encryption key to encrypt and decrypt the properties.  we juts have to use POST localhost:8071/encrypt to encrypt value using plain text body and vice versa
+ # to differentiate between normal value and encrypted value, add {cipher} before encrypted value. (springboot recommended)
 server:
   port: 8071
