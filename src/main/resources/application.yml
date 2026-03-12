@@ -17,9 +17,33 @@ spring:
           timeout: 5
           clone-on-start: true
           force-pull: true
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
 
 #encrypt:
  #key: an encryption key to encrypt and decrypt the properties.  we juts have to use POST localhost:8071/encrypt to encrypt value using plain text body and vice versa
  # to differentiate between normal value and encrypted value, add {cipher} before encrypted value. (springboot recommended)
 server:
   port: 8071
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        # whenever git repo sends a webhook request to monitor api,
+        # behind the scenes,
+        # config server will use spring cloud bus
+        # so bus pai refresh path will be used. we're making sure config server has access to invoke refresh api
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
